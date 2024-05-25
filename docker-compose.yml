@@ -5,12 +5,18 @@ services:
     build:
       dockerfile: ./Dockerfile
     restart: always
-    container_name: linkwithgptFront #容器名稱
+    container_name: linkwithgpt_Front #容器名稱
     environment:
       - OPENAI_API_KEY=sk-xxxx
       - OPENAI_PROXY_URL=https://api-proxy.com/v1
       - ACCESS_CODE=lobe66
       - GOOGLE_ANALYTICS_MEASUREMENT_ID=G-ZJ20EM1NWL
+      - NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-8936138113431331
+      - VERCEL=1
+      - VERCEL_URL=linkwithgpt.3any.ai
+      # - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cmVsYXRpdmUtcmhpbm8tMjIuY2xlcmsuYWNjb3VudHMuZGV2JA
+      # - CLERK_SECRET_KEY=sk_test_imH3Crp4woLV6v5MGsiOJzjKC5O6htwvaKweRx0byW
+      # - CLERK_WEBHOOK_SECRET=whsec_zZR99X+3zbfWzbJ0C57zNcQV0EcQj2Vu
     ports:
       - 3210:3210
   nginx:

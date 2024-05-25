@@ -1,5 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ResolvingViewport } from 'next';
+import { GoogleAdSense } from 'next-google-adsense';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { isRtlLang } from 'rtl-detect';
@@ -35,6 +36,7 @@ const RootLayout = async ({ children, modal }: RootLayoutProps) => {
           <PWAInstall />
         </GlobalProvider>
         <Analytics />
+        <GoogleAdSense publisherId="pub-8936138113431331" />
         {inVercel && <SpeedInsights />}
       </body>
     </html>
