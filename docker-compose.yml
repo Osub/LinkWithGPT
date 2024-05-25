@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  linkwithgpt:
+    build:
+      dockerfile: ./Dockerfile
+    restart: always
+    container_name: linkwithgptFront #容器名稱
+    environment:
+      - OPENAI_API_KEY=sk-xxxx
+      - OPENAI_PROXY_URL=https://api-proxy.com/v1
+      - ACCESS_CODE=lobe66
+      - GOOGLE_ANALYTICS_MEASUREMENT_ID=G-ZJ20EM1NWL
+    ports:
+      - 3210:3210
+  nginx:
+    image: 'nginx:alpine'
+    container_name: linkwithgpt_nginx
+    ports:
+      - "60911:60911"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/logs/:/var/log/nginx
